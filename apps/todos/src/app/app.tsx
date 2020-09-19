@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Todo } from '@denv/data';
 
-interface Todo {
-  title: string;
-}
+const App = () => {
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-export const App = () => {
-  const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Todo 1' },
-    { title: 'Todo 2' },
-  ]);
+  useEffect(() => {
+    fetch('/api/todos')
+      .then((_) => _.json())
+      .then(setTodos);
+  }, []);
 
   function addTodo() {
-    setTodos([
-      ...todos,
-      {
-        title: `New todo ${Math.floor(Math.random() * 1000)}`,
-      },
-    ]);
+    fetch('/api/addTodo', {
+      method: 'POST',
+      body: '',
+    })
+      .then((_) => _.json())
+      .then((newTodo) => {
+        setTodos([...todos, newTodo]);
+      });
   }
 
   return (
@@ -24,7 +26,9 @@ export const App = () => {
       <h1>Todos</h1>
       <ul>
         {todos.map((t) => (
-          <li className={'todo'}>{t.title}</li>
+          <li key={t.title} className={'todo'}>
+            {t.title}
+          </li>
         ))}
       </ul>
       <button id={'add-todo'} onClick={addTodo}>

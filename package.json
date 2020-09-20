@@ -79,7 +79,7 @@
     "emoji": "emoji",
     "editor": false,
     "hooks": {
-      "precommit": "lint-staged",
+      "precommit": "",
       "postpush": ""
     }
   }

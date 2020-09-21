@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@reflexjs/preset-base": "^0.3.0",
+    "@reflexjs/ui": "^0.4.3",
+    "gatsby": "*",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "theme-ui": "^0.3.1"
+  }
+}

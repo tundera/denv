@@ -40,6 +40,23 @@
     },
     "ui": {
       "tags": []
+    },
+    "docs": {
+      "tags": []
+    },
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    },
+    "website": {
+      "tags": []
+    },
+    "website-e2e": {
+      "tags": [],
+      "implicitDependencies": ["website"]
     }
   }
 }
